@@ -12,7 +12,7 @@ const ShopingCart = () => {
       ListFooterComponent={() => (
         <View style={styles.totalContainer}>
           <View style={styles.row}>
-            <Text>Subtotal</Text>
+            <Text style={styles.text}>Subtotal</Text>
             <Text>410.00</Text>
           </View>
         </View>
@@ -24,5 +24,18 @@ const ShopingCart = () => {
 export default ShopingCart;
 
 const styles = StyleSheet.create({
-  totalContainer: {},
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  totalContainer: {
+    margin: 20,
+    paddingTop: 10,
+    borderColor: 'gainsboro',
+    borderTopWidth: 1,
+  },
+  text: {
+    fontSize: 16,
+    color: 'gray',
+  },
 });
