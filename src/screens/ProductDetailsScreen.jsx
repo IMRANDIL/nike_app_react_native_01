@@ -18,22 +18,22 @@ const ProductDetailsScreen = () => {
 
   return (
     <View>
+      <FlatList
+        data={product.images}
+        keyExtractor={(item, index) => item + index}
+        renderItem={({item}) =>
+          !item ? (
+            <ActivityIndicator />
+          ) : (
+            <Image source={{uri: item}} style={styles.image} />
+          )
+        }
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+      />
       <ScrollView style={{padding: 20}} showsVerticalScrollIndicator={false}>
-        <FlatList
-          data={product.images}
-          keyExtractor={(item, index) => item + index}
-          renderItem={({item}) =>
-            !item ? (
-              <ActivityIndicator />
-            ) : (
-              <Image source={{uri: item}} style={styles.image} />
-            )
-          }
-          horizontal
-          pagingEnabled
-          showsHorizontalScrollIndicator={false}
-        />
-        <View style={{paddingBottom: 30}}>
+        <View style={{paddingBottom: 580}}>
           <Text style={styles.title}>{product.name}</Text>
           <Text style={styles.price}>${product.price}</Text>
           <Text style={styles.description}>{product.description}</Text>
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
   image: {
     width: width,
     aspectRatio: 1,
+    marginBottom: 150,
   },
   title: {
     fontSize: 34,
