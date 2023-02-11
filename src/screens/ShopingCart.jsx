@@ -41,7 +41,7 @@ const ShopingCart = () => {
         style={styles.button}
         onPress={() => {}}
         activeOpacity={0.9}>
-        <Text style={styles.buttonTxt}>Add to cart</Text>
+        <Text style={styles.buttonTxt}>Checkout</Text>
       </TouchableOpacity>
     </View>
   );
