@@ -1,4 +1,4 @@
-import {View, Text, FlatList, StyleSheet} from 'react-native';
+import {View, Text, FlatList, StyleSheet, ScrollView} from 'react-native';
 import React from 'react';
 import CartListItem from '../components/CartListItem';
 import cart from '../data/cart';
@@ -10,12 +10,22 @@ const ShopingCart = () => {
       keyExtractor={(item, index) => item + index}
       renderItem={({item}) => <CartListItem cartItem={item} />}
       ListFooterComponent={() => (
-        <View style={styles.totalContainer}>
-          <View style={styles.row}>
-            <Text style={styles.text}>Subtotal</Text>
-            <Text style={styles.text}>410.00</Text>
+        <ScrollView>
+          <View style={styles.totalContainer}>
+            <View style={styles.row}>
+              <Text style={styles.text}>Subtotal</Text>
+              <Text style={styles.text}>410.00 US$</Text>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.text}>Delivery</Text>
+              <Text style={styles.text}>410.00 US$</Text>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.text}>Total</Text>
+              <Text style={styles.text}>410.00 US$</Text>
+            </View>
           </View>
-        </View>
+        </ScrollView>
       )}
     />
   );
