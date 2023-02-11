@@ -27,6 +27,8 @@ const ProductDetailsScreen = () => {
           )
         }
         horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
       />
     </View>
   );
