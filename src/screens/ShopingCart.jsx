@@ -13,7 +13,7 @@ const ShopingCart = () => {
         <View style={styles.totalContainer}>
           <View style={styles.row}>
             <Text style={styles.text}>Subtotal</Text>
-            <Text>410.00</Text>
+            <Text style={styles.text}>410.00</Text>
           </View>
         </View>
       )}
