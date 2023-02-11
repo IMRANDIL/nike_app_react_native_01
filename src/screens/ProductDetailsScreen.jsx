@@ -10,21 +10,78 @@ import {
   Pressable,
   TouchableOpacity,
 } from 'react-native';
-import React from 'react';
+import React, {useMemo} from 'react';
 import products from '../data/products';
 
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
+
+//   const product = products[1];
+
+//   return (
+//     <View style={{height: height}}>
+//       <FlatList
+//         data={product.images}
+//         keyExtractor={(item, index) => item + index}
+//         renderItem={({item}) =>
+//           !item ? (
+//             <ActivityIndicator />
+//           ) : (
+//             <Image source={{uri: item}} style={styles.image} />
+//           )
+//         }
+//         horizontal
+//         pagingEnabled
+//         showsHorizontalScrollIndicator={false}
+//       />
+//       <ScrollView
+//         style={{
+//           padding: 20,
+//         }}
+//         showsVerticalScrollIndicator={false}>
+//         <View style={{paddingBottom: 100}}>
+//           <Text style={styles.title}>{product.name}</Text>
+//           <Text style={styles.price}>${product.price}</Text>
+//           <Text style={styles.description}>{product.description}</Text>
+//         </View>
+//       </ScrollView>
+//       <TouchableOpacity
+//         style={styles.button}
+//         onPress={() => {}}
+//         activeOpacity={0.9}>
+//         <Text style={styles.buttonTxt}>Add to cart</Text>
+//       </TouchableOpacity>
+//     </View>
+//   );
+// };
 const ProductDetailsScreen = () => {
-  const product = products[0];
+  const product = products[1];
+
+  if (!product) {
+    return (
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <Text>Error: Product not found!</Text>
+      </View>
+    );
+  }
+
+  const images = useMemo(() => product.images || [], [product]);
+
+  if (!images.length) {
+    return (
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <Text>Error: Images not found!</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={{height: height}}>
       <FlatList
-        data={product.images}
+        data={images}
         keyExtractor={(item, index) => item + index}
         renderItem={({item}) =>
-          !item ? (
+          item === null ? (
             <ActivityIndicator />
           ) : (
             <Image source={{uri: item}} style={styles.image} />
