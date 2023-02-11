@@ -16,7 +16,7 @@ const Navigation = () => {
           component={ProductsScreen}
           options={{headerTitleAlign: 'center'}}
         />
-        <Stack.Screen name="Details" component={ProductDetailsScreen} />
+        <Stack.Screen name="Product Details" component={ProductDetailsScreen} />
         <Stack.Screen name="Cart" component={ShopingCart} />
       </Stack.Navigator>
     </NavigationContainer>

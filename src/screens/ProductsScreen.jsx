@@ -9,7 +9,7 @@ import {
 import React from 'react';
 import products from '../data/products';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-const ProductsScreen = () => {
+const ProductsScreen = ({navigation}) => {
   return (
     <FlatList
       data={products}
@@ -18,7 +18,9 @@ const ProductsScreen = () => {
         return !item && !item.image ? (
           <ActivityIndicator />
         ) : (
-          <Pressable style={styles.imageContainer} onPress={() => {}}>
+          <Pressable
+            style={styles.imageContainer}
+            onPress={() => navigation.navigate('Product Details')}>
             <Image source={{uri: item.image}} style={styles.image} />
           </Pressable>
         );
