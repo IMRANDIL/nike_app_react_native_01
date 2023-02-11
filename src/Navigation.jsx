@@ -12,7 +12,7 @@ const Navigation = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Home"
+          name="Products"
           component={ProductsScreen}
           options={{headerTitleAlign: 'center'}}
         />
