@@ -22,6 +22,7 @@ const ProductsScreen = () => {
         );
       }}
       numColumns={2}
+      showsVerticalScrollIndicator={false}
     />
   );
 };

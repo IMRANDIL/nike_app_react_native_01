@@ -11,7 +11,13 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={ProductsScreen} />
+        <Stack.Screen
+          name="Home"
+          component={ProductsScreen}
+          options={{headerTitleAlign: 'center'}}
+        />
+        <Stack.Screen name="Details" component={ProductDetailsScreen} />
+        <Stack.Screen name="Cart" component={ShopingCart} />
       </Stack.Navigator>
     </NavigationContainer>
   );
