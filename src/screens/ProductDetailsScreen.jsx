@@ -5,6 +5,7 @@ import {
   StyleSheet,
   FlatList,
   Dimensions,
+  ActivityIndicator,
 } from 'react-native';
 import React from 'react';
 import products from '../data/products';
@@ -17,9 +18,14 @@ const ProductDetailsScreen = () => {
     <View>
       <FlatList
         data={product.images}
-        renderItem={({item}) => (
-          <Image source={{uri: item}} style={styles.image} />
-        )}
+        keyExtractor={(item, index) => item + index}
+        renderItem={({item}) =>
+          !item ? (
+            <ActivityIndicator />
+          ) : (
+            <Image source={{uri: item}} style={styles.image} />
+          )
+        }
         horizontal
       />
     </View>

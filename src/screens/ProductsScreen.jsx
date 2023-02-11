@@ -11,6 +11,7 @@ const ProductsScreen = () => {
   return (
     <FlatList
       data={products}
+      keyExtractor={(item, index) => item + index}
       renderItem={({item}) => {
         return !item && !item.image ? (
           <ActivityIndicator />
