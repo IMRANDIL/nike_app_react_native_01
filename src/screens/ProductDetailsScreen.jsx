@@ -76,7 +76,7 @@ const ProductDetailsScreen = () => {
   }
 
   return (
-    <View style={{height: height}}>
+    <View style={{height: height - 60}}>
       <FlatList
         data={images}
         keyExtractor={(item, index) => item + index}

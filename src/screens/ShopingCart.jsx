@@ -34,7 +34,7 @@ const ShoppingCartTotals = () => {
 
 const ShopingCart = () => {
   return (
-    <View style={{height: height}}>
+    <View style={{height: height - 60}}>
       <FlatList
         data={cart}
         keyExtractor={(item, index) => item + index}

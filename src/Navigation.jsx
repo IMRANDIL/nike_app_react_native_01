@@ -1,4 +1,4 @@
-import {View, Text, Pressable} from 'react-native';
+import {View, Text, Pressable, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -7,18 +7,20 @@ import ProductsScreen from './screens/ProductsScreen';
 import ShopingCart from './screens/ShopingCart';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 const Stack = createNativeStackNavigator();
+import {useNavigation} from '@react-navigation/native';
 
 const Navigation = () => {
+  //   const navigation = useNavigation();
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
           name="Products"
           component={ProductsScreen}
-          options={{
+          options={({navigation}) => ({
             headerTitleAlign: 'center',
             headerRight: () => (
-              <Pressable>
+              <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
                 <FontAwesome5 name="shopping-cart" size={18} color="gray" />
                 <Text
                   style={{
@@ -30,9 +32,9 @@ const Navigation = () => {
                   }}>
                   1
                 </Text>
-              </Pressable>
+              </TouchableOpacity>
             ),
-          }}
+          })}
         />
         <Stack.Screen
           name="Product Details"
