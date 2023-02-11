@@ -4,9 +4,11 @@ import {
   Image,
   StyleSheet,
   ActivityIndicator,
+  Pressable,
 } from 'react-native';
 import React from 'react';
 import products from '../data/products';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 const ProductsScreen = () => {
   return (
     <FlatList
@@ -16,9 +18,9 @@ const ProductsScreen = () => {
         return !item && !item.image ? (
           <ActivityIndicator />
         ) : (
-          <View style={styles.imageContainer}>
+          <Pressable style={styles.imageContainer} onPress={() => {}}>
             <Image source={{uri: item.image}} style={styles.image} />
-          </View>
+          </Pressable>
         );
       }}
       numColumns={2}
