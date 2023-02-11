@@ -4,8 +4,8 @@ import ProductsScreen from './src/screens/ProductsScreen';
 export default function App() {
   return (
     <View style={styles.container}>
-      <ProductsScreen />
-      {/* <ProductDetailsScreen /> */}
+      {/* <ProductsScreen /> */}
+      <ProductDetailsScreen />
     </View>
   );
 }
