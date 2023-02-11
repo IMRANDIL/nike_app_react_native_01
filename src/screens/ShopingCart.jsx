@@ -1,11 +1,14 @@
-import {View, Text} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
 import React from 'react';
+import CartListItem from '../components/CartListItem';
+import cart from '../data/cart';
 
 const ShopingCart = () => {
   return (
-    <View>
-      <Text>ShopingCart</Text>
-    </View>
+    <FlatList
+      data={cart}
+      renderItem={({item}) => <CartListItem cartItem={item} />}
+    />
   );
 };
 
