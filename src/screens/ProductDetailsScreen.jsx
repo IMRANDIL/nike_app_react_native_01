@@ -80,9 +80,11 @@ const styles = StyleSheet.create({
     bottom: 30,
     alignSelf: 'center',
     width: width * 0.9,
-    backgroundColor: 'red',
+    backgroundColor: 'black',
     paddingVertical: 10,
     borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   buttonTxt: {
     textAlign: 'center',
