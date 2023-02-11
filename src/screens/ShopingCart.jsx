@@ -12,6 +12,26 @@ import CartListItem from '../components/CartListItem';
 import cart from '../data/cart';
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
+
+const ShoppingCartTotals = () => {
+  return (
+    <View style={styles.totalContainer}>
+      <View style={styles.row}>
+        <Text style={styles.text}>Subtotal</Text>
+        <Text style={styles.text}>410.00 US$</Text>
+      </View>
+      <View style={styles.row}>
+        <Text style={styles.text}>Delivery</Text>
+        <Text style={styles.text}>410.00 US$</Text>
+      </View>
+      <View style={styles.row}>
+        <Text style={styles.textBold}>Total</Text>
+        <Text style={styles.textBold}>410.00 US$</Text>
+      </View>
+    </View>
+  );
+};
+
 const ShopingCart = () => {
   return (
     <View style={{height: height}}>
@@ -19,22 +39,7 @@ const ShopingCart = () => {
         data={cart}
         keyExtractor={(item, index) => item + index}
         renderItem={({item}) => <CartListItem cartItem={item} />}
-        ListFooterComponent={() => (
-          <View style={styles.totalContainer}>
-            <View style={styles.row}>
-              <Text style={styles.text}>Subtotal</Text>
-              <Text style={styles.text}>410.00 US$</Text>
-            </View>
-            <View style={styles.row}>
-              <Text style={styles.text}>Delivery</Text>
-              <Text style={styles.text}>410.00 US$</Text>
-            </View>
-            <View style={styles.row}>
-              <Text style={styles.textBold}>Total</Text>
-              <Text style={styles.textBold}>410.00 US$</Text>
-            </View>
-          </View>
-        )}
+        ListFooterComponent={ShoppingCartTotals}
         showsVerticalScrollIndicator={false}
       />
       <TouchableOpacity
