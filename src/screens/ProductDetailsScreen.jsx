@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
   ScrollView,
   Pressable,
+  TouchableOpacity,
 } from 'react-native';
 import React from 'react';
 import products from '../data/products';
@@ -44,9 +45,12 @@ const ProductDetailsScreen = () => {
           <Text style={styles.description}>{product.description}</Text>
         </View>
       </ScrollView>
-      <Pressable style={styles.button} onPress={() => {}}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {}}
+        activeOpacity={0.9}>
         <Text style={styles.buttonTxt}>Add to cart</Text>
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -89,6 +93,7 @@ const styles = StyleSheet.create({
   buttonTxt: {
     textAlign: 'center',
     color: 'white',
-    fontWeight: 'bold',
+    fontWeight: '500',
+    fontSize: 16,
   },
 });
