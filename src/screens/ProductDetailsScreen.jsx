@@ -55,7 +55,7 @@ const {height} = Dimensions.get('window');
 //   );
 // };
 const ProductDetailsScreen = () => {
-  const product = products[1];
+  const product = products[0];
 
   if (!product) {
     return (
