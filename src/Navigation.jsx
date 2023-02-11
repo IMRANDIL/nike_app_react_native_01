@@ -20,6 +20,16 @@ const Navigation = () => {
             headerRight: () => (
               <Pressable>
                 <FontAwesome5 name="shopping-cart" size={18} color="gray" />
+                <Text
+                  style={{
+                    position: 'absolute',
+                    right: -5,
+                    top: -12,
+                    fontSize: 18,
+                    fontWeight: 'bold',
+                  }}>
+                  1
+                </Text>
               </Pressable>
             ),
           }}
