@@ -7,12 +7,12 @@ import {
   Dimensions,
   ActivityIndicator,
   ScrollView,
-  Pressable,
   TouchableOpacity,
 } from 'react-native';
 import React, {useMemo} from 'react';
-import products from '../data/products';
-import {useSelector} from 'react-redux';
+// import products from '../data/products';
+import {useSelector, useDispatch} from 'react-redux';
+import {cartSlice} from '../store/cartSlice';
 
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
@@ -55,7 +55,8 @@ const {height} = Dimensions.get('window');
 //     </View>
 //   );
 // };
-const ProductDetailsScreen = () => {
+const ProductDetailsScreen = ({navigation}) => {
+  const dispatch = useDispatch();
   const product = useSelector(state => state.products.selectedProduct);
   // const product = products[0];
 
@@ -106,7 +107,10 @@ const ProductDetailsScreen = () => {
       </ScrollView>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => {}}
+        onPress={() => {
+          dispatch(cartSlice.actions.addCartItem(product));
+          navigation.navigate('Cart');
+        }}
         activeOpacity={0.9}>
         <Text style={styles.buttonTxt}>Add to cart</Text>
       </TouchableOpacity>
