@@ -8,9 +8,11 @@ import ShopingCart from './screens/ShopingCart';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 const Stack = createNativeStackNavigator();
 import {useNavigation} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
 
 const Navigation = () => {
   //   const navigation = useNavigation();
+  const {items} = useSelector(state => state.cart);
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -23,6 +25,7 @@ const Navigation = () => {
             headerRight: () => (
               <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
                 <FontAwesome5 name="shopping-cart" size={18} color="gray" />
+
                 <Text
                   style={{
                     position: 'absolute',
@@ -31,7 +34,7 @@ const Navigation = () => {
                     fontSize: 18,
                     fontWeight: 'bold',
                   }}>
-                  1
+                  {items.length > 0 && items.length}
                 </Text>
               </TouchableOpacity>
             ),

@@ -16,6 +16,7 @@ const ProductsScreen = ({navigation}) => {
   const dispatch = useDispatch();
 
   const {products} = useSelector(state => state.products);
+
   if (!products.length) {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
