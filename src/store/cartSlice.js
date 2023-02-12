@@ -44,5 +44,5 @@ export const selectNumberOfItems = state => state.cart.items.length;
 
 export const selectSubTotal = state =>
   state.cart.items.reduce((sum, cartItem) => {
-    sum + cartItem.product.price * cartItem.quantity;
+    return sum + cartItem.product.price * cartItem.quantity;
   }, 0);
