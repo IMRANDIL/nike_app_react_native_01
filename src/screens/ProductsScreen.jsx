@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ActivityIndicator,
   Pressable,
+  Text,
 } from 'react-native';
 import React from 'react';
 // import products from '../data/products';
@@ -12,6 +13,16 @@ import {useSelector, useDispatch} from 'react-redux';
 
 const ProductsScreen = ({navigation}) => {
   const {products} = useSelector(state => state.products);
+  if (!products.length) {
+    return (
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <Text style={{fontSize: 20, fontWeight: 'bold', color: 'gray'}}>
+          No products found!
+        </Text>
+      </View>
+    );
+  }
+
   return (
     <FlatList
       data={products}
