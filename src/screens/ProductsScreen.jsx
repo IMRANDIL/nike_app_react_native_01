@@ -10,8 +10,11 @@ import {
 import React from 'react';
 // import products from '../data/products';
 import {useSelector, useDispatch} from 'react-redux';
+import {productsSlice} from '../store/productSlice';
 
 const ProductsScreen = ({navigation}) => {
+  const dispatch = useDispatch();
+
   const {products} = useSelector(state => state.products);
   if (!products.length) {
     return (
@@ -33,7 +36,10 @@ const ProductsScreen = ({navigation}) => {
         ) : (
           <Pressable
             style={styles.imageContainer}
-            onPress={() => navigation.navigate('Product Details')}>
+            onPress={() => {
+              dispatch(productsSlice.actions.setSelectedProduct(item.id));
+              navigation.navigate('Product Details');
+            }}>
             <Image source={{uri: item.image}} style={styles.image} />
           </Pressable>
         );
