@@ -34,6 +34,17 @@ const ShoppingCartTotals = () => {
 
 const ShopingCart = () => {
   const items = useSelector(state => state.cart.items);
+
+  if (!items || !items.length) {
+    return (
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <Text style={{fontSize: 20, fontWeight: 'bold', color: 'gray'}}>
+          Cart is empty!
+        </Text>
+      </View>
+    );
+  }
+
   return (
     <View style={{height: height - 60}}>
       <FlatList
