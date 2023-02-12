@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import CartListItem from '../components/CartListItem';
-import cart from '../data/cart';
+import {useSelector} from 'react-redux';
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
 
@@ -33,19 +33,21 @@ const ShoppingCartTotals = () => {
 };
 
 const ShopingCart = () => {
+  const items = useSelector(state => state.cart.items);
   return (
     <View style={{height: height - 60}}>
       <FlatList
-        data={cart}
+        data={items}
         keyExtractor={(item, index) => item + index}
         renderItem={({item}) => <CartListItem cartItem={item} />}
-        ListFooterComponent={ShoppingCartTotals}
+        ListFooterComponent={items && items.length && ShoppingCartTotals}
         showsVerticalScrollIndicator={false}
       />
       <TouchableOpacity
         style={styles.button}
         onPress={() => {}}
-        activeOpacity={0.9}>
+        activeOpacity={0.9}
+        disabled={!items || !items.length}>
         <Text style={styles.buttonTxt}>Checkout</Text>
       </TouchableOpacity>
     </View>
