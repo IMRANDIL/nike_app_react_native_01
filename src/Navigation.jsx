@@ -24,7 +24,7 @@ const Navigation = () => {
             headerTitleAlign: 'center',
             headerRight: () => (
               <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
-                <FontAwesome5 name="shopping-cart" size={18} color="gray" />
+                <FontAwesome5 name="shopping-cart" size={28} color="gray" />
 
                 <Text
                   style={{

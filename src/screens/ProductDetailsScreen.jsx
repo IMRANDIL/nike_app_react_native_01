@@ -109,7 +109,7 @@ const ProductDetailsScreen = ({navigation}) => {
         style={styles.button}
         onPress={() => {
           dispatch(cartSlice.actions.addCartItem({product}));
-          // navigation.navigate('Cart');
+          navigation.navigate('Products');
         }}
         activeOpacity={0.9}>
         <Text style={styles.buttonTxt}>Add to cart</Text>
