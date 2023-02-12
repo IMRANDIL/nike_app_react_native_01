@@ -7,9 +7,11 @@ import {
   Pressable,
 } from 'react-native';
 import React from 'react';
-import products from '../data/products';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+// import products from '../data/products';
+import {useSelector, useDispatch} from 'react-redux';
+
 const ProductsScreen = ({navigation}) => {
+  const {products} = useSelector(state => state.products);
   return (
     <FlatList
       data={products}
