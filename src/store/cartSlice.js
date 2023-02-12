@@ -17,10 +17,14 @@ export const cartSlice = createSlice({
         item => item.product.id === newProduct.id,
       );
 
-      state.items.push({
-        product: newProduct,
-        quantity: 1,
-      });
+      if (findProduct) {
+        findProduct.quantity += 1;
+      } else {
+        state.items.push({
+          product: newProduct,
+          quantity: 1,
+        });
+      }
     },
     changeQuantity: (state, action) => {},
   },
