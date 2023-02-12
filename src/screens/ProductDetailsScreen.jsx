@@ -108,7 +108,7 @@ const ProductDetailsScreen = ({navigation}) => {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-          dispatch(cartSlice.actions.addCartItem(product));
+          dispatch(cartSlice.actions.addCartItem({product}));
           navigation.navigate('Cart');
         }}
         activeOpacity={0.9}>
