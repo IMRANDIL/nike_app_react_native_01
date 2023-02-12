@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import React, {useMemo} from 'react';
 import products from '../data/products';
+import {useSelector} from 'react-redux';
 
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
@@ -55,6 +56,7 @@ const {height} = Dimensions.get('window');
 //   );
 // };
 const ProductDetailsScreen = () => {
+  const {products} = useSelector(state => state.products);
   const product = products[0];
 
   if (!product) {
