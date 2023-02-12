@@ -6,11 +6,17 @@ import {
   ScrollView,
   TouchableOpacity,
   Dimensions,
+  Alert,
 } from 'react-native';
 import React from 'react';
 import CartListItem from '../components/CartListItem';
-import {useSelector} from 'react-redux';
-import {selectDeliveryPrice, selectSubTotal} from '../store/cartSlice';
+import {useDispatch, useSelector} from 'react-redux';
+import {
+  cartSlice,
+  selectDeliveryPrice,
+  selectSubTotal,
+} from '../store/cartSlice';
+
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
 
@@ -37,7 +43,7 @@ const ShoppingCartTotals = () => {
 
 const ShopingCart = () => {
   const items = useSelector(state => state.cart.items);
-
+  const dispatch = useDispatch();
   if (!items || !items.length) {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -59,7 +65,10 @@ const ShopingCart = () => {
       />
       <TouchableOpacity
         style={styles.button}
-        onPress={() => {}}
+        onPress={() => {
+          dispatch(cartSlice.actions.resetCartItems());
+          Alert.alert('Your Checkout Successful!');
+        }}
         activeOpacity={0.9}
         disabled={!items || !items.length}>
         <Text style={styles.buttonTxt}>Checkout</Text>
