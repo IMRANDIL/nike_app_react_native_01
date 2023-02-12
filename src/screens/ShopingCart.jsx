@@ -10,15 +10,17 @@ import {
 import React from 'react';
 import CartListItem from '../components/CartListItem';
 import {useSelector} from 'react-redux';
+import {selectSubTotal} from '../store/cartSlice';
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
 
 const ShoppingCartTotals = () => {
+  const subTotal = useSelector(selectSubTotal);
   return (
     <View style={styles.totalContainer}>
       <View style={styles.row}>
         <Text style={styles.text}>Subtotal</Text>
-        <Text style={styles.text}>410.00 US$</Text>
+        <Text style={styles.text}>{subTotal} US$</Text>
       </View>
       <View style={styles.row}>
         <Text style={styles.text}>Delivery</Text>
