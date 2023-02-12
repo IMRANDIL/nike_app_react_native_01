@@ -7,11 +7,12 @@ import ProductsScreen from './screens/ProductsScreen';
 import ShopingCart from './screens/ShopingCart';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 const Stack = createNativeStackNavigator();
-import {useNavigation} from '@react-navigation/native';
+import {selectNumberOfItems} from './store/cartSlice';
 import {useSelector} from 'react-redux';
 
 const Navigation = () => {
   //   const navigation = useNavigation();
+  // const selectNumberOfItems = useSelector(selectNumberOfItems)
   const {items} = useSelector(state => state.cart);
   return (
     <NavigationContainer>
