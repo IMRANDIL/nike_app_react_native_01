@@ -56,8 +56,8 @@ const {height} = Dimensions.get('window');
 //   );
 // };
 const ProductDetailsScreen = () => {
-  const {products} = useSelector(state => state.products);
-  const product = products[0];
+  const product = useSelector(state => state.products.selectedProduct);
+  // const product = products[0];
 
   if (!product) {
     return (
